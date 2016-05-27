@@ -96,11 +96,13 @@ final class Constant
     }
 
     /**
+     * @param array ...$args
+     *
      * @return mixed
      */
-    public function __invoke()
+    public function __invoke(...$args)
     {
-        return call_user_func_array($this->value, func_get_args());
+        return call_user_func_array($this->value, $args);
     }
 
     /**

@@ -10,7 +10,7 @@ function foo()
 {
     let('created')->be(time());
     print __METHOD__ . ' -- created: ' . let('created') . PHP_EOL;
-//    let('created')->be(time());
+    //    let('created')->be(time());
 }
 
 foo();
@@ -63,3 +63,16 @@ function test()
 }
 
 test();
+
+let('fac')->be(function(int $in) {
+    $out = 1;
+
+    // Only if $in is >= 2
+    for ($i = 2; $i <= $in; $i++) {
+        $out *= $i;
+    }
+
+    return $out;
+});
+
+print 'Global -- fac: ' . let('fac')(6) . PHP_EOL;

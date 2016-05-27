@@ -11,7 +11,7 @@ final class Trace
     /**
      * @var array
      */
-    private static $Parts = ['file', 'class', 'function', 'line'];
+    const PARTS = ['file', 'class', 'function', 'line'];
 
     /**
      * @var array
@@ -51,7 +51,7 @@ final class Trace
     {
         foreach ($frames as $frame) {
             $trace = [];
-            foreach (self::$Parts as $part) {
+            foreach (self::PARTS as $part) {
                 if (array_key_exists($part, $frame)) {
                     $trace[$part] = $frame[$part];
                 }
