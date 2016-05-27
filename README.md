@@ -1,2 +1,2 @@
 # php-constant
-Dynamic PHP-constants at runtime with rust-like lifetime
+Dynamic constants at runtime with rust-like lifetime for PHP 7
