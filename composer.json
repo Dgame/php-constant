@@ -1,0 +1,13 @@
+{
+    "autoload": {
+        "classmap": [
+            "src/"
+        ],
+        "files": [
+            "src/Constant.php"
+        ],
+        "psr-4": {
+            "Constant\\": "src/"
+        }
+    }
+}
