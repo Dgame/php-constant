@@ -79,7 +79,7 @@ final class Constant
     private function ensureUniqueness()
     {
         if ($this->value !== null) {
-            throw new \Exception(sprintf('Konstante "%s" ist bereits belegt', $this->name));
+            throw new FormatException('A constant with name "%s" does already exists', $this->name);
         }
     }
 

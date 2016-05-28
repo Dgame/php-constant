@@ -10,7 +10,7 @@ function foo()
 {
     let('created')->be(time());
     print __METHOD__ . ' -- created: ' . let('created') . PHP_EOL;
-    //    let('created')->be(time());
+//    let('created')->be(time());
 }
 
 foo();
@@ -75,4 +75,4 @@ let('fac')->be(function(int $in) {
     return $out;
 });
 
-print 'Global -- fac: ' . let('fac')(6) . PHP_EOL;
+//print 'Global -- fac: ' . let('fac')(6) . PHP_EOL;

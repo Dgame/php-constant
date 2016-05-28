@@ -1,4 +1,19 @@
 {
+    "name": "php-constant",
+    "description": "php constant",
+    "license": "MIT",
+    "type": "library",
+    "homepage": "https://github.com/php-constant",
+    "authors": [
+        {
+            "name": "Randy Schuett ",
+            "email": "rswhite4@gmail.com",
+            "homepage": "https://github.com/php-constant"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
     "autoload": {
         "classmap": [
             "src/"
