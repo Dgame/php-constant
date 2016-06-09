@@ -1,5 +1,5 @@
 {
-    "name": "php-constant",
+    "name": "dgame/php-constant",
     "description": "php constant",
     "license": "MIT",
     "type": "library",
