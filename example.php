@@ -2,7 +2,7 @@
 
 require_once 'vendor/autoload.php';
 
-use function Constant\let;
+use function Dgame\Constant\let;
 
 print '<pre>';
 

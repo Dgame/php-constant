@@ -1,74 +1,61 @@
 <?php
 
-namespace Constant;
+namespace Dgame\Constant;
 
 /**
  * Class Trace
- * @package Constant
+ * @package Dgame\Constant
  */
 final class Trace
 {
     /**
-     * @var array
+     * @var BackTrace|null
      */
-    const PARTS = ['file', 'class', 'function', 'line'];
-
+    private $trace = null;
     /**
-     * @var array
+     * @var null|string
      */
-    private $trace = [];
+    private $hash = null;
 
     /**
      * Trace constructor.
      *
-     * @param array $frame
+     * @param string $function
      */
-    public function __construct(array $frame)
+    public function __construct(string $function)
     {
-        $frames = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
-        $this->filter($frames, new TraceFrame($frame));
-        $this->extract($frames);
+        $this->trace = new BackTrace($function);
     }
 
     /**
-     * @param array      $frames
-     * @param TraceFrame $traceFrame
+     * @param string $name
+     *
+     * @return string
      */
-    private function filter(array &$frames, TraceFrame $traceFrame)
+    public function getHashOf(string $name) : string
     {
-        foreach ($frames as $idx => $frame) {
-            unset($frames[$idx]);
-            if ($traceFrame->match($frame)) {
-                break;
+        if ($this->hash === null) {
+            $this->generateHashOf($name);
+        }
+
+        return $this->hash;
+    }
+
+    /**
+     * @param string $name
+     */
+    private function generateHashOf(string $name)
+    {
+        $hash = $name;
+        foreach ($this->trace->getBackTrace() as $frame) {
+            $hash .= implode($frame);
+            if (array_key_exists('class', $frame)) {
+                $hash .= $frame['class'];
             }
         }
-    }
 
-    /**
-     * @param array $frames
-     */
-    private function extract(array &$frames)
-    {
-        foreach ($frames as $frame) {
-            $trace = [];
-            foreach (self::PARTS as $part) {
-                if (array_key_exists($part, $frame)) {
-                    $trace[$part] = $frame[$part];
-                }
-            }
-            $this->trace[] = $trace;
-        }
+        $hash .= 'global';
 
-        if (empty($this->trace)) {
-            $this->trace[] = ['global'];
-        }
-    }
-
-    /**
-     * @return array
-     */
-    public function getStackTrace()
-    {
-        return $this->trace;
+        $this->hash = md5($hash);
     }
 }
