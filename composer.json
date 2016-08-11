@@ -4,6 +4,10 @@
     "license": "MIT",
     "type": "library",
     "homepage": "https://github.com/php-constant",
+    "keywords": [
+        "Constant",
+        "Immutable"
+    ],
     "authors": [
         {
             "name": "Randy Schuett ",
