@@ -2,6 +2,8 @@
 
 namespace Dgame\Constant;
 
+defined('DEBUG_BACKTRACE_LEVEL') or define('DEBUG_BACKTRACE_LEVEL', 5);
+
 /**
  * Class Tracer
  * @package Dgame\Constant

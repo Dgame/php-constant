@@ -83,7 +83,7 @@ final class Registry
  */
 function let(string $name): Entry
 {
-    $tracer = new Tracer(__FUNCTION__, debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 5));
+    $tracer = new Tracer(__FUNCTION__, debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, DEBUG_BACKTRACE_LEVEL));
     $entry  = new Entry($name, $tracer);
 
     enforce(!Registry::Instance()->exists($entry->hash))->orThrow('Constant "%s" already exists', $name);
@@ -98,7 +98,7 @@ function let(string $name): Entry
  */
 function get(string $name)
 {
-    $tracer = new Tracer(__FUNCTION__, debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 5));
+    $tracer = new Tracer(__FUNCTION__, debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, DEBUG_BACKTRACE_LEVEL));
     $hash   = $name . $tracer->getHash();
 
     enforce(Registry::Instance()->exists($hash))->orThrow('Constant "%s" does not exists', $name);
@@ -111,7 +111,7 @@ function get(string $name)
  */
 function bind(array $args)
 {
-    $tracer = new Tracer(__FUNCTION__, debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 5));
+    $tracer = new Tracer(__FUNCTION__, debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, DEBUG_BACKTRACE_LEVEL));
 
     foreach ($args as $name => $value) {
         $entry = new Entry($name, $tracer);

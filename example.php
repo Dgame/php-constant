@@ -11,7 +11,7 @@ function foo()
 {
     let('created')->be(time());
     print __METHOD__ . ' -- created: ' . get('created') . PHP_EOL;
-//    let('created')->be(time());
+    //    let('created')->be(time());
 }
 
 foo();
