@@ -115,7 +115,9 @@ function bind(array $args)
 
     foreach ($args as $name => $value) {
         $entry = new Entry($name, $tracer);
-        enforce(Registry::Instance()->exists($entry->hash))->orThrow('Constant "%s" already exists', $name);
+
+        enforce(!Registry::Instance()->exists($entry->hash))->orThrow('Constant "%s" already exists', $name);
+
         $entry->be($value);
     }
 }

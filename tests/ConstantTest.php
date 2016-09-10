@@ -4,6 +4,7 @@ require_once '../vendor/autoload.php';
 
 use Dgame\Ensurance\Exception\EnsuranceException;
 use PHPUnit\Framework\TestCase;
+use function Dgame\Constant\bind;
 use function Dgame\Constant\get;
 use function Dgame\Constant\let;
 
@@ -91,5 +92,13 @@ class ConstantTest extends TestCase
         for ($i = 0; $i < 2; $i++) {
             let('img_filename')->be('bar.png');
         }
+    }
+
+    public function testBind()
+    {
+        bind(['a' => 42, 'b' => 23]);
+
+        $this->assertEquals(42, get('a'));
+        $this->assertEquals(23, get('b'));
     }
 }
