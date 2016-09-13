@@ -23,7 +23,7 @@
             "src/"
         ],
         "files": [
-            "src/Registry.php"
+            "src/functions.php"
         ],
         "psr-4": {
             "Dgame\\Constant\\": "src/"

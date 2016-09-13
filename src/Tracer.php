@@ -33,15 +33,16 @@ final class Tracer
     }
 
     /**
+     * @param string $name
+     *
      * @return string
      */
-    public function getHash(): string
+    public function getHash(string $name): string
     {
-        $hash = '';
         foreach ($this->trace as $trace) {
-            $hash .= implode($trace);
+            $name .= implode($trace);
         }
 
-        return md5($hash);
+        return $name;
     }
 }

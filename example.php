@@ -7,6 +7,19 @@ use function Dgame\Constant\let;
 
 print '<pre>';
 
+let('global')->be('foo');
+
+print get('global') . PHP_EOL;
+
+function moep()
+{
+    let('local')->be('bar');
+    print get('local') . PHP_EOL;
+    print get('global') . PHP_EOL;
+}
+
+moep();
+
 function foo()
 {
     let('created')->be(time());

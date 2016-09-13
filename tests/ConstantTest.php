@@ -94,6 +94,24 @@ class ConstantTest extends TestCase
         }
     }
 
+    public function testGlobalScope()
+    {
+        let('global')->be('Foo');
+        $this->assertEquals('Foo', get('global'));
+
+        function test()
+        {
+            $this->assertEquals('Foo', get('global'));
+
+            let('local')->be('Bar');
+
+            $this->assertEquals('Bar', get('local'));
+            $this->assertEquals('Foo', get('global'));
+        }
+
+        $this->assertEquals('Foo', get('global'));
+    }
+
     public function testBind()
     {
         bind(['a' => 42, 'b' => 23]);

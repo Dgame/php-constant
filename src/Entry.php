@@ -36,7 +36,7 @@ final class Entry
     public function __construct(string $name, Tracer $tracer)
     {
         $this->name = $name;
-        $this->hash = $name . $tracer->getHash();
+        $this->hash = $tracer->getHash($name);
     }
 
     /**
