@@ -2,7 +2,6 @@
 
 namespace Dgame\Constant;
 
-use Dgame\Ensurance\Exception\EnsuranceException;
 use function Dgame\Ensurance\enforce;
 
 /**
@@ -24,7 +23,6 @@ function let(string $name): Entry
  * @param string $name
  *
  * @return mixed
- * @throws EnsuranceException
  */
 function get(string $name)
 {
