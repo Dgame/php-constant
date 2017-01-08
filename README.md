@@ -1,4 +1,6 @@
 # php-constant
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Dgame/php-constant/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Dgame/php-constant/?branch=master)
+
 Dynamic constants at runtime with rust-like lifetime for PHP 7
 
 ##example
